@@ -1,0 +1,136 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.preloader{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    visibility: visible;
+    z-index: 999;
+}
+.hidepreloader{
+    z-index: -999;
+    visibility: hidden;
+}
+.video{
+    /* let the image or video fit the screen!!!!!!!!!! */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index:-1;
+}
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: whitesmoke;
+}
+header::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index:-1;
+    background: rgba(0,0,0,0.1); 
+}
+
+
+/* toggle button setting------------------------------- */
+/* button position */
+.switch{ 
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    border-radius: 20px;    
+    transform: translate(-50%,-50%);
+}
+/*  check mark apperence */
+.switch input{
+    appearance: none; /*cancel the checkbox style */
+    background: rgba(245, 245, 245, 0.8);
+    width: 120px;
+    height: 30px;
+    border-radius: 20px;  
+}
+/* if checked, the background color change to ... */
+.switch input:checked{
+    background:#cb904dd4;
+}
+
+
+.switch input::before,.switch input::after{
+    z-index: 2;
+    position: absolute;
+    transform: translatey(50%);
+}
+
+
+/* add text in front of check mark*/
+.switch input::before{
+    content: "PLAY";
+    left: 15px;
+    color: #cb904d;
+}
+/* add text behind check mark*/
+.switch input::after{
+    content: "STOP";
+    right: 15px;
+    color: #cb904d;
+}
+.switch input{
+    transition: 0.3s;
+}
+/* when checked, font color change to white */
+.switch input:checked::after,.switch input:checked::before{
+    color: #f5f5f5;
+    transition: 0.3s;
+}
+/* the position of slide toggle */
+.switch label{
+    z-index: 1;
+    position: absolute;
+    top: 8px;
+    bottom: 13px;
+    border-radius: 20px;
+    width: 50px;
+    left: 10px;
+    right: 85px;
+    background: #cb904d;
+    height: 20px;
+}
+.switch input:checked+label{
+    left: 65px;
+    right: 10px;
+    background:#f5f5f5;
+    transition:right 0.5s,left 0.4s ;
+}
+
+
+/*  if input is not checked */
+.switch input:not(:checked){
+    background: rgba(245, 245, 245, 0.8);
+}
+/* the origin color (when window loaded) */
+.switch input:not(:checked)::before{
+    color:  #cb904d;
+    transition: color 0.5s ;
+}
+.switch input:not(:checked)::after{
+    color: #cb904d;
+    transition: color 0.5s  0.2s;
+}
+.switvh input:not(:checked) +label{
+    left: 10px;
+    right: 85px;
+    background: #cb904d;
+    background: #cb904d;
+    transition: right 0.5s 0.2s, left 0.5s 0.2s, background 0.3s;
+}
